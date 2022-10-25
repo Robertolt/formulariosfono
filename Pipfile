@@ -8,8 +8,8 @@ django = "*"
 pytest-django = "*"
 
 [dev-packages]
-flake8 = "*"
 pytest-cov = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.9"
