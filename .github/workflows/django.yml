@@ -34,3 +34,6 @@ jobs:
     - name: Run pytest cov
       run: |
           pipenv run pytest --cov=formularios
+    - name: Run Python decouple
+      run: |
+          cp contrib/env-sample .env
