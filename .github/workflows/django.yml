@@ -23,14 +23,17 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install pipenv
       run: |
-        python -m pip install pipenv
+          pip install pipenv
     - name: Run Tests
       run: |
           pipenv install --dev
           pipenv run pytest
-    - name: Run Flake8
+    - name: Run flake8
       run: |
-        pipenv run flake8
+          pipenv run flake8
     - name: Run pytest cov
       run: |
-        pipenv run pytest --cov=formularios
+          pipenv run pytest --cov=formularios
+    - name: Run Python decouple
+      run: |
+          cp contrib/env-sample .env
