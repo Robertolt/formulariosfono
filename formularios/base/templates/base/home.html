@@ -36,7 +36,8 @@
 				<div class="col-md-12">
 				</div>
 			</div>
-			<form role="form">
+			<form role="form" action="{% url 'home' %}"  method="post">
+                {% csrf_token %}
 				<div class="form-group">
 					 
 					<label for="exampleInputEmail1">
@@ -51,48 +52,45 @@
 					</label>
 					<input type="password" class="form-control" id="exampleInputPassword1">
 				</div>
-
                 <div>
                     <div class="text-center h5 mt-5">{{ questionario.titulo }} - {{ questionario.descricao }}</div>
                 </div>
 				<div class="form-group mt-5 mb-2">
-
                     <div style="margin-left:5%">
                         {% for pergunta in perguntas %}
                             <div>{{ pergunta.texto }}</div>
-
-                            <div>
-                            <div class="form-check mt-2">
-                                <input type="radio" id="html" name="fav_language" value="0 Nunca">
-                                <label for="html">0 Nunca</label><br>
-                            </div>
-                            <div class="form-check mt-2">
-                                <input type="radio" id="html" name="fav_language" value="1 Raramente">
-                                <label for="html">1 Raramente</label><br>
-                            </div>
-                            <div class="form-check mt-2">
-                                <input type="radio" id="html" name="fav_language" value="2 Ocasionalmente">
-                                <label for="html">2 Ocasionalmente</label><br>
-                            </div>
-                            <div class="form-check mt-2">
-                                <input type="radio" id="html" name="fav_language" value="3 Frequentemente">
-                                <label for="html">3 Frequentemente</label><br>
-                            </div>
-                            <div class="form-check mt-2">
-                                <input type="radio" id="html" name="fav_language" value="4 Sempre">
-                                <label for="html">4 Sempre</label><br>
-                            </div>
+                                <div>
+                                <div class="form-check mt-2">
+                                    <input type="radio" id="nunca" name="{{ pergunta.id }}" value="0 Nunca">
+                                    <label for="html">0 Nunca</label><br>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input type="radio" id="raramente" name="{{ pergunta.id }}" value="1 Raramente">
+                                    <label for="html">1 Raramente</label><br>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input type="radio" id="ocasionamente" name="{{ pergunta.id }}" value="2 Ocasionalmente">
+                                    <label for="html">2 Ocasionalmente</label><br>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input type="radio" id="frequentemente" name="{{ pergunta.id }}" value="3 Frequentemente">
+                                    <label for="html">3 Frequentemente</label><br>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input type="radio" id="sempre" name="{{ pergunta.id }}" value="4 Sempre">
+                                    <label for="html">4 Sempre</label><br>
+                                    {{ erros.e }}
+                                </div>
                             </div>
                             <br>
                         {% endfor %}
                     </div>
-
-
 				</div>
                 <br>
 				<button type="submit" class="btn btn-primary">
-					Submit
+					Enviar respostas
 				</button>
+            <br/> <br/>
 			</form>
 			<div class="row">
 				<div class="col-md-12">

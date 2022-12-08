@@ -11,13 +11,13 @@ def resp(client):
     return resp
 
 
-def test_status_code(resp):
+def test_status_code(resp, db):
     assert resp.status_code == 200
 
 
-def test_home_titulo(resp):
+def test_home_titulo(resp, db):
     assert_contains(resp, '<title>Formulários</title>')
 
 
-def test_home_link(resp):
+def test_home_link(resp, db):
     assert_contains(resp, f'href="{reverse("home")}">Formulários')
