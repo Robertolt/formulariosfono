@@ -18,7 +18,9 @@ def home(request):
         name = request.POST
         print(name)
         print(p)
-
+        # for i in range(len(p)):
+        # valor = name['i']
+        # print(valor)
 
     #     for  in p.id:
     #         contador = 0
