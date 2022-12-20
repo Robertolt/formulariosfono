@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <h2> Resposta Questionario </h2>
+    <br>
+    <br>
+
+    {% if resposta_questionario %}
+    <div> Questionario: {{ resposta_questionario.questionario.titulo }} </div>
+    <div> Usuario: {{ resposta_questionario.usuario.first_name }} </div>
+    <div> Data de Resposta: {{ resposta_questionario.data_resposta }} </div>
+    <br>
+    {% for resposta in resposta_questionario.resposta_set.all %}
+    <div> Pergunta: {{ resposta.pergunta.texto }} </div>
+    <div> Opcao: {{ resposta.opcao }} </div>
+    <hr>
+    {% endfor %}
+    {% else %}
+    Resposta de questionario invalida.
+    <br>
+    {% endif %}
+
+    <a href="{% url 'home' %}">Voltar</a>
+</body>
+
+</html>
