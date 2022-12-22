@@ -77,6 +77,10 @@ def resposta_questionario_view(request, pk):
     return render(request, 'base/resposta_questionario.html', context={"resposta_questionario": resposta_questionario})
 
 
+def sucesso(request):
+    return render(request, 'base/sucesso.html')
+
+
 def home(request):
     q = Questionario.objects.first()
     p = Pergunta.objects.filter(questionario=q).all()
@@ -103,7 +107,8 @@ def home(request):
                 resposta = Resposta(resposta_questionario=resp_quest, pergunta=pergunta, opcao=opcao)
                 resposta.save()
 
-            return redirect(f'/resposta_questionario/{resp_quest.id}')
+            return redirect(f'/sucesso')
+            # return redirect(f'/resposta_questionario/{resp_quest.id}')
 
     #     for  in p.id:
     #         contador = 0
