@@ -9,7 +9,7 @@
     <div> Questionario: {{ resposta_questionario.questionario.titulo }} </div>
     <div> Usuario: {{ resposta_questionario.usuario.first_name }} </div>
     <div> Data de Resposta: {{ resposta_questionario.data_resposta }} </div>
-    <div> Somatório do Questionário: {{ resposta_questionario.somatorio }} </div>
+    <div> Somatório do Questionário: {{ somatorio }} </div>
     <br>
     {% for resposta in resposta_questionario.resposta_set.all %}
     <div> Pergunta: {{ resposta.pergunta.texto }} </div>

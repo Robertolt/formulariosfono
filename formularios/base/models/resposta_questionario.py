@@ -10,5 +10,4 @@ class RespostaQuestionario(models.Model):
     data_resposta = models.DateTimeField(default=timezone.now)
 
 
-class Somatorio(models.Model):
-    somatorio = models.IntegerField()
+

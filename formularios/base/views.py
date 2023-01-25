@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 # from django.shortcuts import render
 from .models import Questionario, Pergunta
-from .models import RespostaQuestionario, Resposta, User, Somatorio
+from .models import RespostaQuestionario, Resposta, User
 
 from django.views.generic.edit import FormView
 from django import forms
@@ -73,7 +73,15 @@ def resposta_questionario_view(request, pk):
     else:
         resposta_questionario = None
 
-    return render(request, 'base/resposta_questionario.html', context={"resposta_questionario": resposta_questionario})
+    somatorio = 0
+    opcoes = Resposta.objects.filter(opcao=pk)
+    for opcao in opcoes:
+        valor_reposta = opcao.opcao.split()
+        valor_reposta = int(valor_reposta[0])
+        somatorio += valor_reposta
+
+    return render(request, 'base/resposta_questionario.html', context={"resposta_questionario": resposta_questionario,
+                                                                       "somatorio": somatorio})
 
 
 def sucesso(request):
@@ -99,18 +107,10 @@ def home(request):
             resp_quest = RespostaQuestionario(questionario=q, usuario=users.first())
             resp_quest.save()
 
-            somatorio = 0
             for pergunta in p:
                 opcao = request.POST.get(str(pergunta.id), "")
-                valor_reposta = opcao.split()
-                valor_reposta = int(valor_reposta[0])
-                somatorio += valor_reposta
-                resposta = Resposta(resposta_questionario=resp_quest, pergunta=pergunta,
-                                    opcao=opcao)
+                resposta = Resposta(resposta_questionario=resp_quest, pergunta=pergunta, opcao=opcao)
                 resposta.save()
-            print(somatorio)
-            soma = Somatorio(resposta_questionario=resp_quest, somatorio=somatorio)
-            soma.save()
 
             return redirect(f'/sucesso')
             # return redirect(f'/resposta_questionario/{resp_quest.id}')
