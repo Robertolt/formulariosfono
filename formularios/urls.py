@@ -20,7 +20,7 @@ from formularios.base.views import home, resposta_questionario_view, sucesso
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', FormRespostaView.as_view(), name='home'),
+    # path('', FormRespostaView.as_view(), name='home'),
     path('', home, name='home'),
     path('sucesso', sucesso, name='sucesso'),
     path('resposta_questionario/<int:pk>', resposta_questionario_view, name='resposta-questionario-view'),

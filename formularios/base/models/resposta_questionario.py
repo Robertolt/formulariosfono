@@ -8,3 +8,7 @@ class RespostaQuestionario(models.Model):
     questionario = models.ForeignKey(Questionario, on_delete=models.CASCADE)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     data_resposta = models.DateTimeField(default=timezone.now)
+
+
+class Somatorio(models.Model):
+    somatorio = models.IntegerField()
