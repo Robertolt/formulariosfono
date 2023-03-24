@@ -76,9 +76,9 @@ def resposta_questionario_view(request, pk):
     # for i in range():
 
     somatorio = 0
-    opcoes = Resposta.objects.filter(opcao=pk)
-    for opcao in opcoes:
-        valor_reposta = opcao.split()
+    respostas = Resposta.objects.filter(resposta_questionario=resposta_questionario)
+    for resposta in respostas:
+        valor_reposta = resposta.opcao.split()
         valor_reposta = int(valor_reposta[0])
         somatorio += valor_reposta
 
