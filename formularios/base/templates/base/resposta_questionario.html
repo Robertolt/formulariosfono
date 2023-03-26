@@ -1,11 +1,32 @@
-<html>
+{% extends 'base/base.html' %}
 
+<title>{% block title %} Resposta Formulário {% endblock title %}</title>
+
+{% block body %}
 <body>
     <h2> Resposta Questionario </h2>
     <br>
     <br>
 
     {% if resposta_questionario %}
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Questionario</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Data de Resposta</th>
+              <th scope="col">Somatório do Questionário</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{ resposta_questionario.questionario.titulo }}</th>
+              <td>{{ resposta_questionario.usuario.first_name }}</td>
+              <td>{{ resposta_questionario.data_resposta }}</td>
+              <td>{{ somatorio }}</td>
+            </tr>
+          </tbody>
+        </table>
     <div> Questionario: {{ resposta_questionario.questionario.titulo }} </div>
     <div> Usuario: {{ resposta_questionario.usuario.first_name }} </div>
     <div> Data de Resposta: {{ resposta_questionario.data_resposta }} </div>
@@ -24,4 +45,5 @@
     <a href="{% url 'home' %}">Voltar</a>
 </body>
 
-</html>
+{% endblock body %}
+
