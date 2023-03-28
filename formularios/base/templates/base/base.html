@@ -29,6 +29,32 @@
     </div>
     </nav>
 
-</head>
+
 
 {% block body %} {% endblock body %}
+
+<footer class="main-footer mt-5 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>Entre em Contato</h3>
+                <address>
+                    +55 999-999-999
+                    <br/>
+                    <a href="mailto:{{ contato_email }}">{{ contato_email }}</a>
+                </address>
+            </div>
+        </div>
+    </div>
+    <div class="rights pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {% now 'Y' %} Fonoaudiologia Ufes.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
