@@ -33,7 +33,17 @@
 
 {% block body %} {% endblock body %}
 
-<footer class="main-footer mt-5 pt-4">
+    <style>
+        .main-footer{
+            background: #021334;
+        }
+
+        .rights{
+            background-color: #03204b;
+        }
+    </style>
+
+    <footer class="main-footer mt-5 pt-4 text-light">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -46,10 +56,11 @@
             </div>
         </div>
     </div>
-    <div class="rights pb-4">
+    <div class="rights mt-2 pb-4">
         <div class="container">
             <div class="row">
                 <div class="col">
+                    <br>
                     {% now 'Y' %} Fonoaudiologia Ufes.
                 </div>
             </div>
