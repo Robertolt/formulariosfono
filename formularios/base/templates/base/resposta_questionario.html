@@ -31,8 +31,22 @@
         </table>
     <br>
     {% for resposta in resposta_questionario.resposta_set.all %}
-    <div> Pergunta: {{ resposta.pergunta.texto }} </div>
-    <div> Opcao: {{ resposta.opcao }} </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: left; vertical-align: middle; width: 2px">
+                  Pergunta:</th>
+              <th scope="col" style="text-align: left; vertical-align: middle">
+                  {{ resposta.pergunta.texto }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="text-align: left; vertical-align: middle">Opcao:</th>
+              <td style="text-align: left; vertical-align: middle">{{ resposta.opcao }}</td>
+            </tr>
+          </tbody>
+        </table>
     <hr>
     {% endfor %}
     {% else %}
@@ -40,7 +54,7 @@
     <br>
     {% endif %}
 
-    <a href="{% url 'home' %}">Voltar</a>
+    <button type="submit" class="btn btn-primary m-2" onclick="href={% url 'home' %}">Voltar</button>
 </body>
 
 {% endblock body %}
