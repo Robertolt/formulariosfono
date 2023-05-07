@@ -1,0 +1,9 @@
+<div class="editable-label">
+    <div *ngIf="isEditing; else label" class="edit">
+        <input type="text" [(ngModel)]="text" placeholder="Texto" #editable_label (keyup.enter)="onSubmit()"
+            (keydown.escape)="toggleEditing()" (focusout)="toggleEditing()" />
+    </div>
+    <ng-template #label>
+        <span class="noedit" (click)="toggleEditing()">{{ text }}</span>
+    </ng-template>
+</div>

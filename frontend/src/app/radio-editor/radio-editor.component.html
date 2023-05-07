@@ -1,0 +1,15 @@
+<div class="question-text">
+    <app-editable-label [(text)]="question_text"></app-editable-label>
+</div>
+<div>
+    <div *ngFor="let option of options">
+        <div class="options">
+            <div class="radio-button">
+                <input type="radio" class="example-radio-button">
+            </div>
+            <div class="radio-label">
+                <app-editable-label [(text)]="option.text"></app-editable-label>
+            </div>
+        </div>
+    </div>
+</div>

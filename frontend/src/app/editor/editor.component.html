@@ -1,0 +1,21 @@
+<div class="editor">
+    <div class='form-title h1'>
+        <app-editable-label [(text)]="title"></app-editable-label>
+    </div>
+    <br>
+    <div class="questions">
+        <div *ngFor="let question of questions">
+            <app-radio-editor></app-radio-editor>
+            <br>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button mat-fab extended color="primary" title='new question' aria-label="button to create a new question"
+            (click)="handleNewQuestionClick()">
+            <mat-icon>add</mat-icon>
+            Nova Questão
+        </button>
+    </div>
+    <br>
+</div>

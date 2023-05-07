@@ -1,0 +1,23 @@
+.editable-label input {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: inherit;
+    font: inherit;
+    border-radius: 10px;
+}
+
+.editable-label .noedit {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 10px;
+}
+
+.editable-label .noedit:hover {
+    background-color: rgb(235, 236, 240);
+}

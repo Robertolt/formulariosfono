@@ -1,0 +1,26 @@
+input[type="radio"] {
+    -ms-transform: scale(1.5);
+    /* IE 9 */
+    -webkit-transform: scale(1.5);
+    /* Chrome, Safari, Opera */
+    transform: scale(1.5);
+}
+
+.question-text {
+    padding-bottom: 20px;
+}
+
+.options {
+    padding-bottom: 10px;
+}
+
+.radio-button {
+    width: 30px;
+    display: inline-block;
+}
+
+.radio-label {
+    width: 95%;
+    display: inline-block;
+    vertical-align: center;
+}
