@@ -1,7 +1,7 @@
 
-from .questionnaire import *
-from .question import *
-from .response import *
-from .question_option import *
-from .selected_option import *
-from .written_answer import *
+from .questionnaire import Questionnaire
+from .question import Question
+from .response import Response
+from .question_option import QuestionOption
+from .selected_option import SelectedOption
+from .written_answer import WrittenAnswer

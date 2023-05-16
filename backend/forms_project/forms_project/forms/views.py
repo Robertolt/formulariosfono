@@ -1,7 +1,28 @@
+
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from forms_project.forms.serializers import UserSerializer, GroupSerializer
+
+from forms_project.forms.models import (
+    Questionnaire,
+    Question,
+    Response,
+    QuestionOption,
+    SelectedOption,
+    WrittenAnswer,
+)
+
+from forms_project.forms.serializers import (
+    UserSerializer, 
+    GroupSerializer,
+    QuestionnaireSerializer,
+    QuestionSerializer,
+    ResponseSerializer,
+    QuestionOptionSerializer,
+    SelectedOptionSerializer,
+    WrittenAnswerSerializer,
+)
+
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,3 +41,35 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+    
+    
+class QuestionnaireViewSet(viewsets.ModelViewSet):
+    queryset = Questionnaire.objects.all()
+    serializer_class = QuestionnaireSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+class ResponseViewSet(viewsets.ModelViewSet):
+    queryset = Response.objects.all()
+    serializer_class = ResponseSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+class QuestionOptionViewSet(viewsets.ModelViewSet):
+    queryset = QuestionOption.objects.all()
+    serializer_class = QuestionOptionSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+class SelectedOptionViewSet(viewsets.ModelViewSet):
+    queryset = SelectedOption.objects.all()
+    serializer_class = SelectedOptionSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+class WrittenAnswerViewSet(viewsets.ModelViewSet):
+    queryset = WrittenAnswer.objects.all()
+    serializer_class = WrittenAnswerSerializer
+    permission_classes = [permissions.IsAdminUser]
+

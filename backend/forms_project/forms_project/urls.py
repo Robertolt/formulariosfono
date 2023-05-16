@@ -22,6 +22,12 @@ from forms_project.forms import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'questionnaries', views.QuestionnaireViewSet)
+router.register(r'questions', views.QuestionViewSet)
+router.register(r'responses', views.ResponseViewSet)
+router.register(r'question_options', views.QuestionOptionViewSet)
+router.register(r'selected_options', views.SelectedOptionViewSet)
+router.register(r'written_answers', views.WrittenAnswerViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
