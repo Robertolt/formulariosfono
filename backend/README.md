@@ -1,5 +1,7 @@
 
-# Install
+# System Backend
+
+## Install
 
 Install requirements: 
 
@@ -20,3 +22,11 @@ Create the admin user:
 ```
 python manage.py createsuperuser 
 ``` 
+
+## Running
+
+Run the system with:
+
+```
+python manage.py runserver 
+```
