@@ -5,3 +5,4 @@ Os formulários de fonoaudiologia da ufes serão digitalizados para melhor anál
 # Para utilizar
 - pip install pipenv 
 - pipenv install
+
