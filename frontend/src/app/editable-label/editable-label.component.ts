@@ -8,13 +8,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class EditableLabelComponent {
   // appropriate names are necessary for two way data binding. 
   // see https://angular.io/guide/two-way-binding
-  @Input() text = 'Label';
+  @Input() text = 'Click to edit';
   @Output() textChange = new EventEmitter<string>();
 
   isEditing = false;
 
   onSubmit() {
-    console.log("text: " + this.text);
     this.textChange.emit(this.text);
     this.isEditing = false;
   }

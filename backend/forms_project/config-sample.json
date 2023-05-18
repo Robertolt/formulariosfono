@@ -1,21 +1,12 @@
 {
     "db": {
-        "type": "<TYPE OF DB: sqlite | postgre>",
-        "name": "<NAME OF DB OR PATH IF SQLITE>",
-        "user": "<DB USER>",
-        "password": "<DB PASSWORD>",
-        "host": "<DB HOST>",
-        "port": "<DB PORT (EMPTY IF DEFAULT)>"
+        "type": "sqlite | postgre",
+        "name": "",
+        "user": "",
+        "password": "",
+        "host": "",
+        "port": ""
     },
-    "secret_key": "<SECRET KEY>",
-    "autojudge_directory": "<DIRECTORY TO BE USED BY AUTOJUDGE>",
-    "use_docker": true | false,
-    "allowed_hosts": [
-        "<LIST OF ALLOWED HOSTS>"
-    ],
-    "cpp": {
-        "use_valgrind": true | false (requires that valgrind is installed - NOT SUPPORTED YET.),
-        "flags": "flags to use when makefile is not submitted",
-        "cc": "compiler to use when makefile is not submitted"
-    }
+    "secret_key": "some secret_key",
+    "allowed_hosts": []
 }

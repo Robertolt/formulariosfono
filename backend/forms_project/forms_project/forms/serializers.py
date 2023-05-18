@@ -11,43 +11,43 @@ from forms_project.forms.models import (
     WrittenAnswer,
 )
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['url', 'username', 'email', 'groups']
 
 
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
+class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
         fields = ['url', 'name']
 
-class QuestionnaireSerializer(serializers.HyperlinkedModelSerializer):
+class QuestionnaireSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Questionnaire
         fields = '__all__'
 
-class QuestionSerializer(serializers.HyperlinkedModelSerializer):
+class QuestionSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Question
         fields = '__all__'
 
-class ResponseSerializer(serializers.HyperlinkedModelSerializer):
+class ResponseSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Response
         fields = '__all__'
 
-class QuestionOptionSerializer(serializers.HyperlinkedModelSerializer):
+class QuestionOptionSerializer(serializers.ModelSerializer):
     class Meta: 
         model = QuestionOption
         fields = '__all__'
 
-class SelectedOptionSerializer(serializers.HyperlinkedModelSerializer):
+class SelectedOptionSerializer(serializers.ModelSerializer):
     class Meta: 
         model = SelectedOption
         fields = '__all__'
 
-class WrittenAnswerSerializer(serializers.HyperlinkedModelSerializer):
+class WrittenAnswerSerializer(serializers.ModelSerializer):
     class Meta: 
         model = WrittenAnswer
         fields = '__all__'

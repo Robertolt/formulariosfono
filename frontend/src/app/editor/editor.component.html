@@ -1,6 +1,10 @@
-<div class="editor">
+<div *ngIf="questionnarie; else loadingMessage" class="editor">
     <div class='form-title h1'>
-        <app-editable-label [(text)]="title"></app-editable-label>
+        <app-editable-label [(text)]="questionnarie.title" (textChange)="updateQuestionnarie()"></app-editable-label>
+    </div>
+    <div class='form-description fst-italic text-center'>
+        <app-editable-label [(text)]="questionnarie.description"
+            (textChange)="updateQuestionnarie()"></app-editable-label>
     </div>
     <br>
     <div class="questions">
@@ -19,3 +23,7 @@
     </div>
     <br>
 </div>
+
+<ng-template #loadingMessage>
+    <span>Loading questionnarie</span>
+</ng-template>

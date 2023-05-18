@@ -1,0 +1,22 @@
+<div>
+    <button class="btn btn-primary" color="primary" title='new questionnarie'
+        aria-label="button to create a new questionnarie">
+        <mat-icon>add</mat-icon>
+        Questionário
+    </button>
+</div>
+
+<br>
+<br>
+
+<div>
+    <table>
+        <tr *ngFor="let questionnaire of questionnaries" class="">
+            <td>
+                <a href="/editor/{{ questionnaire.id }}"> {{ questionnaire.title }} </a>
+                <br>
+                <br>
+            </td>
+        </tr>
+    </table>
+</div>

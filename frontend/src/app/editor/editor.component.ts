@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { QuestionnariesService } from 'src/services/questionnaries.service';
 
 @Component({
   selector: 'app-editor',
@@ -8,11 +10,30 @@ import { Component } from '@angular/core';
 export class EditorComponent {
   questions: number[] = [];
   title: string = 'Título do Meu Novo Formulário';
+  questionnarie: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    private questionnariesService: QuestionnariesService) {
+  }
+
+  ngOnInit() {
+    // First get the product id from the current route.
+    const routeParams = this.route.snapshot.paramMap;
+    const questionnarieIdFromRoute: number = Number(routeParams.get('questionnarieId'));
+
+    this.questionnariesService.getQuestionnarie(questionnarieIdFromRoute).subscribe((data: any) => {
+      this.questionnarie = data;
+    });
+  }
 
   handleNewQuestionClick() {
-    console.log("title: " + this.title);
-    console.log('New question clicked');
     this.questions.push(1);
-    console.log(this.questions);
+  }
+
+  updateQuestionnarie() {
+    this.questionnariesService.saveQuestionnarie(this.questionnarie).subscribe((data: any) => {
+      this.questionnarie = data;
+    });
   }
 }
