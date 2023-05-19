@@ -1,0 +1,9 @@
+<div class="options">
+    <div class="radio-button">
+        <input type="radio" class="example-radio-button">
+    </div>
+    <div class="radio-label">
+        <app-editable-label [(text)]="questionOption.text" (textChange)="updateQuestionOption()"
+            (onRemove)="removeQuestionOption()"></app-editable-label>
+    </div>
+</div>

@@ -5,7 +5,7 @@ export enum ApiPaths {
     Questionnaries = "questionnaries",
     Questions = "questions",
     Responses = "responses",
-    Question_options = "question_options",
-    Selected_options = "selected_options",
-    Written_answers = "written_answers"
+    QuestionOptions = "question_options",
+    SelectedOptions = "selected_options",
+    WrittenAnswers = "written_answers"
 }

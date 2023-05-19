@@ -1,26 +1,18 @@
-input[type="radio"] {
-    -ms-transform: scale(1.5);
-    /* IE 9 */
-    -webkit-transform: scale(1.5);
-    /* Chrome, Safari, Opera */
-    transform: scale(1.5);
-}
-
 .question-text {
-    padding-bottom: 20px;
-}
-
-.options {
     padding-bottom: 10px;
+    font-weight: bold;
 }
 
-.radio-button {
-    width: 30px;
-    display: inline-block;
+.add-option-button {
+    margin-left: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 10px;
 }
 
-.radio-label {
-    width: 95%;
-    display: inline-block;
-    vertical-align: center;
+.add-option-button:hover {
+    cursor: pointer;
+    background-color: rgb(235, 236, 240);
 }

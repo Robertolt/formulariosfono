@@ -7,6 +7,6 @@ from .question import Question
 
 
 class QuestionOption(models.Model):        
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='question_option_set', on_delete=models.CASCADE)
     text = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)

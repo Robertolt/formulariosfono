@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiPaths } from 'src/data/api-paths';
 import { Env } from 'src/data/env';
+import { Questionnaire } from 'src/models/questionnaire';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,10 @@ export class QuestionnariesService {
     return this.httpClient.get<JSON>(`${Env.ApiUrl}/${ApiPaths.Questionnaries}/${id}/`);
   }
 
-  saveQuestionnarie(questionnarie: any) {
-    return this.httpClient.put<JSON>(`${Env.ApiUrl}/${ApiPaths.Questionnaries}/${questionnarie.id}/`, questionnarie);
+  updateQuestionnarie(questionnarie: Questionnaire) {
+    return this.httpClient.put<JSON>(
+      `${Env.ApiUrl}/${ApiPaths.Questionnaries}/${questionnarie.id}/`,
+      questionnarie
+    );
   }
 }

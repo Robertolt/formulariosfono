@@ -1,9 +1,18 @@
 .editor {
     padding-top: 50px;
     padding-bottom: 50px;
+    line-height: 1.6;
 }
 
 .form-title {
     text-align: center;
     padding-bottom: 30px;
+}
+
+.form-description {
+    text-align: center;
+    font-style: italic;
+    padding-left: 20%;
+    padding-right: 20%;
+    color: gray;
 }

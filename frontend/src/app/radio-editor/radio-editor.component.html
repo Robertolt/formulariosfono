@@ -1,15 +1,26 @@
 <div class="question-text">
-    <app-editable-label [(text)]="question_text"></app-editable-label>
-</div>
-<div>
-    <div *ngFor="let option of options">
-        <div class="options">
-            <div class="radio-button">
-                <input type="radio" class="example-radio-button">
-            </div>
-            <div class="radio-label">
-                <app-editable-label [(text)]="option.text"></app-editable-label>
-            </div>
+    <div class="d-flex">
+        <div class="p-2 flex-shink-1">
+            {{ numberInQuestionnarie + 1 }})
+        </div>
+        <div class="p-2 w-100">
+            <app-editable-label [(text)]="question.text" (textChange)="updateQuestion()"
+                (onRemove)="removeQuestion()"></app-editable-label>
         </div>
     </div>
+</div>
+<div>
+    <div *ngFor="let optionId of question.question_option_set">
+        <app-radio-answer [optionId]="optionId" (onOptionRemove)="removeOption($event)"></app-radio-answer>
+    </div>
+
+    <span class="add-option-button" (click)="addNewOption()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+        </svg>
+        adicionar opção
+    </span>
+
 </div>

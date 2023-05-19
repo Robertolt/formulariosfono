@@ -9,7 +9,7 @@
 <br>
 <br>
 
-<div>
+<div *ngIf="questionnaries; else questionnariesNotFound">
     <table>
         <tr *ngFor="let questionnaire of questionnaries" class="">
             <td>
@@ -20,3 +20,7 @@
         </tr>
     </table>
 </div>
+
+<ng-template #questionnariesNotFound>
+    <span>Ainda não existem questionários cadastrados ou aconteceram erros ao carregar os questionários.</span>
+</ng-template>

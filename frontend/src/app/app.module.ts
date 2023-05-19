@@ -10,7 +10,7 @@ import { AllMaterialStuffModule } from '../material.module';
 
 import { AppComponent } from './app.component';
 import { EditorComponent } from './editor/editor.component';
-
+import { RadioAnswerComponent } from './radio-answer/radio-answer.component';
 import { RadioEditorComponent } from './radio-editor/radio-editor.component';
 import { EditableLabelComponent } from './editable-label/editable-label.component';
 import { QuestionnariesComponent } from './questionnaries/questionnaries.component';
@@ -26,6 +26,7 @@ const routes: Routes = [
     AppComponent,
     EditorComponent,
     RadioEditorComponent,
+    RadioAnswerComponent,
     EditableLabelComponent,
     QuestionnariesComponent,
   ],

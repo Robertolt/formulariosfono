@@ -1,15 +1,21 @@
-<div *ngIf="questionnarie; else loadingMessage" class="editor">
+<br>
+<a href="/">Voltar</a>
+<br>
+
+<div *ngIf="questionnaire; else loadingMessage" class="editor">
     <div class='form-title h1'>
-        <app-editable-label [(text)]="questionnarie.title" (textChange)="updateQuestionnarie()"></app-editable-label>
+        <app-editable-label [(text)]="questionnaire.title" (textChange)="updateQuestionnaire()"
+            [canRemove]="false"></app-editable-label>
     </div>
-    <div class='form-description fst-italic text-center'>
-        <app-editable-label [(text)]="questionnarie.description"
-            (textChange)="updateQuestionnarie()"></app-editable-label>
+    <div class='form-description'>
+        <app-editable-label [(text)]="questionnaire.description" (textChange)="updateQuestionnaire()"
+            [canRemove]="false"></app-editable-label>
     </div>
     <br>
     <div class="questions">
-        <div *ngFor="let question of questions">
-            <app-radio-editor></app-radio-editor>
+        <div *ngFor="let questionId of questionnaire.question_set; let i = index" [attr.data-index]="i">
+            <app-radio-editor [questionId]="questionId" [numberInQuestionnarie]="i"
+                (onQuestionRemove)="handleQuestionRemoved($event)"></app-radio-editor>
             <br>
         </div>
     </div>
@@ -25,5 +31,22 @@
 </div>
 
 <ng-template #loadingMessage>
-    <span>Loading questionnarie</span>
+    <span>Carregando questionário.</span>
 </ng-template>
+
+<br>
+
+<a href="/">Voltar</a>
+
+
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>

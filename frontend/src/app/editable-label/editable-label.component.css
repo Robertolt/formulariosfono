@@ -5,12 +5,12 @@
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: inherit;
+    height: 40px;
     font: inherit;
     border-radius: 10px;
 }
 
 .editable-label .noedit {
-    width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
@@ -20,4 +20,8 @@
 
 .editable-label .noedit:hover {
     background-color: rgb(235, 236, 240);
+}
+
+.remove-button:hover {
+    cursor: pointer;
 }

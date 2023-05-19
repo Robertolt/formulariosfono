@@ -14,23 +14,40 @@ from forms_project.forms.models import (
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ['id', 'first_name', 'last_name', 'username', 'email', 'groups']
 
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ['url', 'name']
+        fields = ['id', 'name']
 
 class QuestionnaireSerializer(serializers.ModelSerializer):
+    question_set = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    
     class Meta: 
         model = Questionnaire
-        fields = '__all__'
+        fields = [
+            'id', 
+            'title', 
+            'description', 
+            'created_at', 
+            'question_set'
+        ]
 
 class QuestionSerializer(serializers.ModelSerializer):
+    question_option_set = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    
     class Meta: 
         model = Question
-        fields = '__all__'
+        fields = [
+            'id',
+            'questionnaire',
+            'text',
+            'created_at',
+            'question_type',
+            'question_option_set'
+        ]
 
 class ResponseSerializer(serializers.ModelSerializer):
     class Meta: 

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Question } from 'src/models/question';
+import { Questionnaire } from 'src/models/questionnaire';
 import { QuestionnariesService } from 'src/services/questionnaries.service';
+import { QuestionsService } from 'src/services/questions.service';
 
 @Component({
   selector: 'app-editor',
@@ -8,13 +11,12 @@ import { QuestionnariesService } from 'src/services/questionnaries.service';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent {
-  questions: number[] = [];
-  title: string = 'Título do Meu Novo Formulário';
-  questionnarie: any;
+  questionnaire: Questionnaire = new Questionnaire();
 
   constructor(
     private route: ActivatedRoute,
-    private questionnariesService: QuestionnariesService) {
+    private questionnariesService: QuestionnariesService,
+    private questionsService: QuestionsService) {
   }
 
   ngOnInit() {
@@ -23,17 +25,23 @@ export class EditorComponent {
     const questionnarieIdFromRoute: number = Number(routeParams.get('questionnarieId'));
 
     this.questionnariesService.getQuestionnarie(questionnarieIdFromRoute).subscribe((data: any) => {
-      this.questionnarie = data;
+      this.questionnaire = data;
     });
   }
 
   handleNewQuestionClick() {
-    this.questions.push(1);
+    this.questionsService.createQuestion(this.questionnaire.id).subscribe((data: any) => {
+      this.questionnaire.question_set.push(data.id);
+    });
   }
 
-  updateQuestionnarie() {
-    this.questionnariesService.saveQuestionnarie(this.questionnarie).subscribe((data: any) => {
-      this.questionnarie = data;
+  updateQuestionnaire() {
+    this.questionnariesService.updateQuestionnarie(this.questionnaire).subscribe((data: any) => {
+      this.questionnaire = data;
     });
+  }
+
+  handleQuestionRemoved(questionId: number) {
+    this.questionnaire.question_set = this.questionnaire.question_set.filter(q => q !== questionId);
   }
 }
